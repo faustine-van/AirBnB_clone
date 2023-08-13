@@ -1,19 +1,33 @@
 #!/usr/bin/python3
+"""
 
-"""BaseModel that defines all common attributes/methods for other classes"""
+    BaseModel:
+            that defines all common attributes/methods for other classes
+
+"""
 from uuid import uuid4
 from datetime import datetime
 import models
 
 
 class BaseModel:
-    """BaseModel class or parrent classes"""
+    """BaseModel class or parrent classes
+       attributes:
+           - id
+           - created_at
+           - created_at
+       methods:
+           -  __str__(): string representation
+           -  to_dict:returns dictionary
+           -  save: save all string json represenation in json file
+    """
 
     def __init__(self, *args, **kwargs):
         """initialize edited
 
         args:no name keyword
         kwargs: named keyword
+
 
         """
         if not kwargs:
@@ -33,6 +47,8 @@ class BaseModel:
 
     def __str__(self):
         """print: [<class name>] (<self.id>) <self.__dict__>
+           - class name: class of instance
+           - id: unique identifiers
         """
 
         class_name = self.__class__.__name__
