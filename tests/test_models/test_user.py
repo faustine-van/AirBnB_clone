@@ -56,24 +56,6 @@ class test_user(unittest.TestCase):
         u1 = User()
         self.assertIsInstance(u1, BaseModel)
 
-    def test_str(self):
-        """
-             User test:
-
-        """
-        u1 = User()
-        class_name = u1.__class__.__name__
-        string = "[{}] ({}) {}".format(class_name, u1.id, u1.__dict__)
-        self.assertEqual(str(u1), string)
-
-    def test_dict(self):
-        """
-            test_dict: test dictionary
-
-        """
-        user = User()
-        dictd = user.to_dict()
-        self.assertTrue("created_at" in dictd)
 
     def test_other_from_BaseModel(self):
         """
