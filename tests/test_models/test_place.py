@@ -4,6 +4,10 @@
 """
 from models.place import Place
 from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.state import State
+from models.review import Review
 import unittest
 
 
@@ -125,3 +129,11 @@ class test_place(unittest.TestCase):
         self.assertTrue(hasattr(b1, "created_at"))
         self.assertTrue(hasattr(b1, "updated_at"))
         self.assertTrue(hasattr(b1, "id"))
+
+    def test_other_from_city(self):
+        """
+            test attributes
+
+        """
+        b1 = Place()
+        self.assertTrue(hasattr(b1, "name"))
