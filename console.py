@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""the entry point of the command interpreter"""
+"""
+    the entry point of the command interpreter
+"""
 import cmd
 import sys
 import re
@@ -26,7 +28,9 @@ intro_text = """\
 
 
 class HBNBCommand(cmd.Cmd):
-    """class HBNBCommand"""
+    """
+        class HBNBCommand
+    """
     intro = intro_text.format()
 
     prompt = ("(hbnb) ")
@@ -42,6 +46,7 @@ class HBNBCommand(cmd.Cmd):
 
         if not arg:
             print("** class name missing **")
+            return False
 
         args = arg.split(" ")
 
@@ -62,12 +67,10 @@ class HBNBCommand(cmd.Cmd):
         if len(ags) == 0:
             print("** class name missing **")
             return False
-
         class_name = ags[0]
         if class_name not in HBNBCommand.__all_classes:
             print("** class doesn't exist **")
             return False
-
         if len(ags) == 1:
             print("** instance id missing **")
             return False
@@ -236,16 +239,12 @@ class HBNBCommand(cmd.Cmd):
         """disable the repetition of the last command"""
         pass
 
-    def help_quit(self):
-        """help for quit command"""
-        print('\n'.join(['Quit command to exit the program' + '\n']))
-
     def do_quit(self, line):
-        """quit command"""
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, line):
-        """quit command"""
+        """Exit console using shortcut Ctrl+D"""
         return True
 
 

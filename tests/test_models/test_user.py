@@ -26,7 +26,8 @@ class test_user(unittest.TestCase):
             tearDownClass
 
         """
-        del  cls.user
+        del cls.user
+
     def test_string(self):
         """
             test attributes
@@ -56,7 +57,6 @@ class test_user(unittest.TestCase):
         u1 = User()
         self.assertIsInstance(u1, BaseModel)
 
-
     def test_other_from_BaseModel(self):
         """
             test attributes
@@ -66,6 +66,3 @@ class test_user(unittest.TestCase):
         self.assertTrue(hasattr(b1, "created_at"))
         self.assertTrue(hasattr(b1, "updated_at"))
         self.assertTrue(hasattr(b1, "id"))
-
-if __name__=="__main__":
-    unittest.main()
