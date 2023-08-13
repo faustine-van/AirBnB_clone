@@ -42,6 +42,17 @@ class test_user(unittest.TestCase):
         self.assertIsInstance(b1.first_name, str)
         self.assertIsInstance(b1.last_name, str)
 
+    def test_attributes(self):
+        """
+            test attributes
+
+        """
+        b1 = User()
+        self.assertTrue(hasattr(b1, "email"))
+        self.assertIsInstance(hasattr(b1, "password"))
+        self.assertIsInstance(hasattr(b1, "first_name"))
+        self.assertIsInstance(hasattr(b1, "last_name"))
+
     def test_class(self):
         """
             test_class
