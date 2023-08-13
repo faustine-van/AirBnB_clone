@@ -16,22 +16,10 @@ from models.review import Review
 import models
 
 
-intro_text = """\
- ------------------------------
- |     Welcome to AirBnB       |
- ------------------------------
-
- Type 'quit' or 'Ctrl-D' to quit.
- Type 'help' command for overview or more details
-
-"""
-
-
 class HBNBCommand(cmd.Cmd):
     """
         class HBNBCommand
     """
-    intro = intro_text.format()
 
     prompt = ("(hbnb) ")
     __all_classes = {
