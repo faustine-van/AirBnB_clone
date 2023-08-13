@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""city"""
+"""
+    city
+"""
 from models.base_model import BaseModel
 
 
@@ -10,5 +12,5 @@ class City(BaseModel):
                name: name of state
     """
 
-    name = ""
     state_id = ""
+    name = ""
