@@ -54,7 +54,7 @@ class test_user(unittest.TestCase):
             test_class
         """
         u1 = User()
-        self.assertIsInstance(u1, User)
+        self.assertIsInstance(u1, BaseModel)
 
     def test_str(self):
         """
