@@ -5,7 +5,6 @@
 from models.base_model import BaseModel
 from models.user import User
 import unittest
-import re
 
 
 class test_user(unittest.TestCase):
@@ -19,7 +18,7 @@ class test_user(unittest.TestCase):
             setUpClass
 
         """
-        print("setUpClass")
+        cls.user = User()
 
     @classmethod
     def tearDownClass(cls):
@@ -27,8 +26,7 @@ class test_user(unittest.TestCase):
             tearDownClass
 
         """
-        print("tearDownClass")
-
+        del  cls.user
     def test_string(self):
         """
             test attributes
@@ -86,3 +84,6 @@ class test_user(unittest.TestCase):
         self.assertTrue(hasattr(b1, "created_at"))
         self.assertTrue(hasattr(b1, "updated_at"))
         self.assertTrue(hasattr(b1, "id"))
+
+if __name__=="__main__":
+    unittest.main()
