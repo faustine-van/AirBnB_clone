@@ -40,7 +40,6 @@ class test_user(unittest.TestCase):
         self.assertIsInstance(b1.first_name, str)
         self.assertIsInstance(b1.last_name, str)
 
-
     def test_attributes(self):
         """
             test attributes
