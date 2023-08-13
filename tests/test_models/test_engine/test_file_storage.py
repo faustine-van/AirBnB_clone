@@ -1,23 +1,36 @@
 #!/usr/bin/python3
-"""test BaseModel"""
+"""
+    test FileStorage
+"""
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
 import unittest
 
 
 class test_file_storage(unittest.TestCase):
-    """BaseModel test"""
-
-    @classmethod
-    def setup(self):
-        print("setUp")
-
-    def tearDown(self):
-        print("tearDown")
+    """FileStorage test"""
 
     @classmethod
     def setUpClass(cls):
-        print("setUpClass")
+        """
+             setUpClass
+        """
+        cls.f1 = FileStorage()
 
     @classmethod
     def tearDownClass(cls):
-        print("tearDownClass")
+        """
+             tearDownClass
+        """
+        del cls.f1
+
+    def test_attr(self):
+        """
+             test attributes
+        """
+        f1 = FileStorage()
+        self.assertTrue(hasattr(f1, "_FileStorage__objects"))
+        self.assertTrue(hasattr(f1, "_FileStorage__file_path"))
+        self.assertIsInstance(f1._FileStorage__objects, dict)
+        self.assertIsInstance(f1._FileStorage__file_path, str)
+        self.assertEqual(f1._FileStorage__file_path, "file.json")
