@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
     test User information
-
 """
 from models.base_model import BaseModel
 from models.user import User
@@ -11,8 +10,7 @@ import re
 
 class test_user(unittest.TestCase):
     """
-    User test:
-
+        User test class
     """
 
     @classmethod
@@ -42,6 +40,7 @@ class test_user(unittest.TestCase):
         self.assertIsInstance(b1.first_name, str)
         self.assertIsInstance(b1.last_name, str)
 
+
     def test_attributes(self):
         """
             test attributes
@@ -49,9 +48,9 @@ class test_user(unittest.TestCase):
         """
         b1 = User()
         self.assertTrue(hasattr(b1, "email"))
-        self.assertIsInstance(hasattr(b1, "password"))
-        self.assertIsInstance(hasattr(b1, "first_name"))
-        self.assertIsInstance(hasattr(b1, "last_name"))
+        self.assertTrue(hasattr(b1, "password"))
+        self.assertTrue(hasattr(b1, "first_name"))
+        self.assertTrue(hasattr(b1, "last_name"))
 
     def test_class(self):
         """
@@ -78,3 +77,13 @@ class test_user(unittest.TestCase):
         user = User()
         dictd = user.to_dict()
         self.assertTrue("created_at" in dictd)
+
+    def test_other_from_BaseModel(self):
+        """
+            test attributes
+
+        """
+        b1 = User()
+        self.assertTrue(hasattr(b1, "created_at"))
+        self.assertTrue(hasattr(b1, "updated_at"))
+        self.assertTrue(hasattr(b1, "id"))
