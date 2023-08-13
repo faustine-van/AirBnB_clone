@@ -21,4 +21,3 @@ class test_place(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         print("tearDownClass")
-

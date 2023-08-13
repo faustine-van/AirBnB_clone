@@ -23,9 +23,9 @@ class test_base(unittest.TestCase):
         print("tearDownClass")
 
     def test_equal(self):
-      my_model = BaseModel()
-      my_model.name = "My First Model"
-      self.assertEqual(my_model.name, "My First Model")
+        my_model = BaseModel()
+        my_model.name = "My First Model"
+        self.assertEqual(my_model.name, "My First Model")
 
     def test_Base(self):
         my_model = BaseModel()

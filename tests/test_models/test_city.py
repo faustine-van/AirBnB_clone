@@ -21,4 +21,3 @@ class test_city(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         print("tearDownClass")
-

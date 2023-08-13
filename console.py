@@ -4,7 +4,6 @@ import cmd
 import sys
 import re
 from shlex import split
-""" import my module """
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
@@ -186,9 +185,8 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         """handle class method like:
-	   Usage: <class name>.count()
+           Usage: <class name>.count()
            Usage: <class name>.all()
-          c
         """
         ags = re.match(r"^(\w+)\.(\w+)\((.*?)\)", line)
         all_commands = {
@@ -211,13 +209,15 @@ class HBNBCommand(cmd.Cmd):
             parameters = re.match(r"\"(.+?)\", (.+)", ags[2])
             if parameters.groups()[1][0] == '{':
                 dict_ob = eval(parameters.groups()[1])
-                for key, val in  dict_ob.items():
-
-                    all_commands[ags[1]](ags[0] + " " + parameters.groups()[0] +  " " + key + " " + str(val))
+                for key, val in dict_ob.items():
+                    grp1 = ags[0] + " " + parameters.groups()[0]
+                    grp2 = " " + key + " " + str(val)
+                    all_commands[ags[1]](grp1 + grp2)
             else:
                 others = parameters.groups()[1].split(", ")
-                all_commands[ags[1]](ags[0] + " " + parameters.groups()[0] + " " + others[0] + " " + others[1])
-
+                gp1 = ags[0] + " " + parameters.groups()[0]
+                gp2 = " " + others[0] + " " + others[1]
+                all_commands[ags[1]](gp1 + gp2)
 
     def do_count(self, arg):
         """retrieve the number of instances of a class:
