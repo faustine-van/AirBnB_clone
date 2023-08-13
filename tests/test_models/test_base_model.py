@@ -23,7 +23,7 @@ class test_base(unittest.TestCase):
         """
             User test:
         """
-        print("tearDownClass")
+        del cls.basemodel
 
     def test_valid_id(self):
         """
