@@ -32,6 +32,16 @@ class test_base(unittest.TestCase):
         basemodel = self.basemodel
         self.assertIsInstance(basemodel, BaseModel)
 
+    def test_attributes(self):
+        """
+            test attributes
+
+        """
+        b1 = BaseModel()
+        self.assertTrue(hasattr(b1, "created_at"))
+        self.assertTrue(hasattr(b1, "id"))
+        self.assertTrue(hasattr(b1, "updated_at"))
+
     def test_id_is_string(self):
         """
            test if id is string
