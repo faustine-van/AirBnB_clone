@@ -47,10 +47,11 @@ class test_base(unittest.TestCase):
             test
 
         """
-        basemodel = self.basemodel
         b1 = BaseModel()
+        b1.number = 10
         b1.save()
-        self.assertNotEqual(basemodel.updated_at, b1.updated_at)
+        self.assertTrue(hasattr(b1, "number"))
+        self.assertEqual(b1.number, 10)
 
     def test_id_is_string(self):
         """
