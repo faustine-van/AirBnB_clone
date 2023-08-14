@@ -42,6 +42,16 @@ class test_base(unittest.TestCase):
         self.assertTrue(hasattr(b1, "id"))
         self.assertTrue(hasattr(b1, "updated_at"))
 
+    def test_save_updated_at(self):
+        """
+            test
+
+        """
+        basemodel = self.basemodel
+        b1 = BaseModel()
+        b1.save()
+        self.assertNotEqual(basemodel.updated_at, b1.updated_at)
+
     def test_id_is_string(self):
         """
            test if id is string
