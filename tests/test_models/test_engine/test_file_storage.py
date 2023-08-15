@@ -74,7 +74,6 @@ class test_file_storage(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.reload(None)
 
-
     def test_save(self):
         """
              test save() method
