@@ -43,9 +43,12 @@ class test_file_storage(unittest.TestCase):
         """
              test all
         """
+        f1 = FileStorage()
         all_objs = models.storage.all()
         self.assertEqual(dict, type(all_objs))
+        self.assertIs(all_objs, f1._FileStorage__objects)
         self.assertIsInstance(all_objs, dict)
+        self.assertIsNotNone(all_objs)
         all_obj1 = models.storage.all()
         with self.assertRaises(TypeError):
             models.storage.all(None)
