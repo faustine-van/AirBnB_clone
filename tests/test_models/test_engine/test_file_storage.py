@@ -68,8 +68,12 @@ class test_file_storage(unittest.TestCase):
         """
              test reload() method
         """
+        models.storage.reload()
+        a_all_objs = models.storage.all()
+        self.assertGreater(len(a_all_objs), 0)
         with self.assertRaises(TypeError):
             models.storage.reload(None)
+
 
     def test_save(self):
         """
