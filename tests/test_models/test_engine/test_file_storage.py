@@ -18,6 +18,7 @@ class test_file_storage(unittest.TestCase):
              setUpClass
         """
         cls.f1 = FileStorage()
+        cls.basemodel = BaseModel()
 
     @classmethod
     def tearDownClass(cls):
@@ -81,3 +82,27 @@ class test_file_storage(unittest.TestCase):
         with open("file.json", "r") as file:
             text = file.read()
             self.assertIn(str_b1 + b1.id, text)
+
+    def test_save(self):
+        """
+             test save() method
+        """
+        b1 = BaseModel()
+        str_b1 = "BaseModel."
+        models.storage.new(b1)
+        models.storage.save()
+        text = ""
+        with open("file.json", "r") as file:
+            text = file.read()
+            self.assertIn(str_b1 + b1.id, text)
+
+    def test_save_updated_at(self):
+        """
+            test
+
+        """
+        bs = self.basemodel
+        old_updated_at = bs.updated_at
+        bs.save()
+        new_updated_at = bs.updated_at
+        self.assertNotEqual(old_updated_at, new_updated_at)
