@@ -43,6 +43,7 @@ class test_file_storage(unittest.TestCase):
         """
         all_objs = models.storage.all()
         self.assertEqual(dict, type(all_objs))
+        self.assertIsInstance(all_objs, dict)
         all_obj1 = models.storage.all()
         with self.assertRaises(TypeError):
             models.storage.all(None)
@@ -73,7 +74,10 @@ class test_file_storage(unittest.TestCase):
              test save() method
         """
         b1 = BaseModel()
-        old_updated_at = b1.updated_at
-        b1.save()
-        new_updated_at = b1.updated_at
-        self.assertNotEqual(old_updated_at, new_updated_at)
+        str_b1 = "BaseModel."
+        models.storage.new(b1)
+        models.storage.save()
+        text = ""
+        with open("file.json", "r") as file:
+            text = file.read()
+            self.assertIn(str_b1 + b1.id, text)
