@@ -141,17 +141,18 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             print("** instance id missing **")
             return False
-
+        class_name = args[0]
+        class_id = args[1]
+        key = f"{class_name}.{class_id}"
+        if key not in all_objs:
+            print("** no instance found **")
+            return False
         if len(args) == 2:
             print("** attribute name missing **")
             return False
         if len(args) == 3:
             print("** value missing **")
             return False
-
-        class_name = args[0]
-        class_id = args[1]
-        key = f"{class_name}.{class_id}"
 
         if len(args) == 4:
             obj = all_objs[key]
