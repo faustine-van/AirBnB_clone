@@ -5,6 +5,8 @@
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import unittest
+import models
+import re
 
 
 class test_file_storage(unittest.TestCase):
@@ -34,3 +36,34 @@ class test_file_storage(unittest.TestCase):
         self.assertIsInstance(f1._FileStorage__objects, dict)
         self.assertIsInstance(f1._FileStorage__file_path, str)
         self.assertEqual(f1._FileStorage__file_path, "file.json")
+
+    def test_all(self):
+        """
+             test all
+        """
+        all_objs = models.storage.all()
+        self.assertEqual(dict, type(all_objs))
+        all_obj1 = models.storage.all()
+        with self.assertRaises(TypeError):
+            models.storage.all(None)
+
+    def test_new(self):
+        """
+             test new() method
+        """
+        b1 = BaseModel()
+        models.storage.new(b1)
+        models.storage.save()
+        models.storage.reload()
+        objs = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + b1.id, objs)
+
+        with self.assertRaises(TypeError):
+            models.storage.new()
+
+    def test_reload(self):
+        """
+             test reload() method
+        """
+        with self.assertRaises(TypeError):
+            models.storage.reload(None)
