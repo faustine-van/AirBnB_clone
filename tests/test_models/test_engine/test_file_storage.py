@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 import unittest
 import models
 import re
+import os
 
 
 class test_file_storage(unittest.TestCase):
@@ -99,10 +100,16 @@ class test_file_storage(unittest.TestCase):
     def test_save_updated_at(self):
         """
             test
-
         """
         bs = self.basemodel
         old_updated_at = bs.updated_at
         bs.save()
         new_updated_at = bs.updated_at
         self.assertNotEqual(old_updated_at, new_updated_at)
+
+    def test_save_file(self):
+        """
+            test file exists
+        """
+        models.storage.save()
+        self.assertTrue(os.path.exists("file.json"))
