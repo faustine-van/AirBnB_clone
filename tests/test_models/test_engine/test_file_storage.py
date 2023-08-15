@@ -67,3 +67,13 @@ class test_file_storage(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             models.storage.reload(None)
+
+    def test_save(self):
+        """
+             test save() method
+        """
+        b1 = BaseModel()
+        old_updated_at = b1.updated_at
+        b1.save()
+        new_updated_at = b1.updated_at
+        self.assertNotEqual(old_updated_at, new_updated_at)
